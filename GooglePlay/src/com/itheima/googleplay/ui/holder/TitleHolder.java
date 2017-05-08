@@ -10,7 +10,7 @@ import com.itheima.googleplay.utils.UIUtils;
 /**
  * 分类模块标题holder
  * 
- * @author Kevin
+ * @author liupeng
  * @date 2015-11-1
  */
 public class TitleHolder extends BaseHolder<CategoryInfo> {

@@ -15,9 +15,9 @@ import com.itheima.googleplay.utils.UIUtils;
 import android.view.View;
 
 /**
- * 首页
+ * 分类
  * 
- * @author Kevin
+ * @author liupeng
  * @date 2015-10-27
  */
 public class CategoryFragment extends BaseFragment {

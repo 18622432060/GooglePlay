@@ -3,7 +3,7 @@ package com.itheima.googleplay.domain;
 /**
  * 分类信息
  * 
- * @author Kevin
+ * @author liupeng
  * @date 2015-11-1
  */
 public class CategoryInfo {

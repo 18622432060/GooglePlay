@@ -6,7 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 /**
  * 推荐网络访问
- * @author Kevin
+ * @author liupeng
  * @date 2015-10-30
  */
 public class RecommendProtocol extends BaseProtocol<ArrayList<String>> {

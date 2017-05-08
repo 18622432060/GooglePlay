@@ -5,7 +5,7 @@ import java.util.HashMap;
 /**
  * 生产fragment工厂
  * 
- * @author Kevin
+ * @author liupeng
  * @date 2015-10-27
  */
 public class FragmentFactory {
@@ -15,38 +15,34 @@ public class FragmentFactory {
 	public static BaseFragment createFragment(int pos) {
 		// 先从集合中取, 如果没有,才创建对象, 提高性能
 		BaseFragment fragment = mFragmentMap.get(pos);
-
 		if (fragment == null) {
 			switch (pos) {
-			case 0:
-				fragment = new HomeFragment();
-				break;
-			case 1:
-				fragment = new AppFragment();
-				break;
-			case 2:
-				fragment = new GameFragment();
-				break;
-			case 3:
-				fragment = new SubjectFragment();
-				break;
-			case 4:
-				fragment = new RecommendFragment();
-				break;
-			case 5:
-				fragment = new CategoryFragment();
-				break;
-			case 6:
-				fragment = new HotFragment();
-				break;
-
-			default:
-				break;
+				case 0:
+					fragment = new HomeFragment();//首页
+					break;
+				case 1:
+					fragment = new AppFragment();//应用
+					break;
+				case 2:
+					fragment = new GameFragment();//游戏
+					break;
+				case 3:
+					fragment = new SubjectFragment();//专题
+					break;
+				case 4:
+					fragment = new RecommendFragment();//推荐
+					break;
+				case 5:
+					fragment = new CategoryFragment();//分类
+					break;
+				case 6:
+					fragment = new HotFragment();//排行
+					break;
+				default:
+					break;
 			}
-
 			mFragmentMap.put(pos, fragment);// 将fragment保存在集合中
 		}
-
 		return fragment;
 	}
 }

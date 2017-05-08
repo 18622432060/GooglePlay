@@ -22,7 +22,7 @@ import com.nineoldandroids.animation.ValueAnimator.AnimatorUpdateListener;
 /**
  * 详情页-应用描述
  * 
- * @author Kevin
+ * @author liupeng
  * @date 2015-11-3
  */
 public class DetailDesHolder extends BaseHolder<AppInfo> {

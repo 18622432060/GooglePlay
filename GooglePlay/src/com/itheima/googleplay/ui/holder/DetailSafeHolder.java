@@ -24,7 +24,7 @@ import com.nineoldandroids.animation.ValueAnimator.AnimatorUpdateListener;
 /**
  * 应用详情页-安全模块
  * 
- * @author Kevin
+ * @author liupeng
  * @date 2015-11-1
  */
 public class DetailSafeHolder extends BaseHolder<AppInfo> {

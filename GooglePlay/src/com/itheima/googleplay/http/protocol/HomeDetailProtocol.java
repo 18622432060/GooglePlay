@@ -9,8 +9,10 @@ import org.json.JSONObject;
 import com.itheima.googleplay.domain.AppInfo;
 import com.itheima.googleplay.domain.AppInfo.SafeInfo;
 
-/*
+/**
  * 首页详情页网络访问
+ * @author liupeng
+ *
  */
 public class HomeDetailProtocol extends BaseProtocol<AppInfo> {
 

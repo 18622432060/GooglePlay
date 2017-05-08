@@ -14,7 +14,7 @@ import android.os.Environment;
  *  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
  * 
- * @author Kevin
+ * @author liupeng
  * @date 2015-11-4
  */
 public class DownloadInfo {

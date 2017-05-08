@@ -15,7 +15,7 @@ import com.itheima.googleplay.utils.UIUtils;
 /**
  * 访问网络的基类
  * 
- * @author Kevin
+ * @author liupeng
  * @date 2015-10-28
  */
 public abstract class BaseProtocol<T> {

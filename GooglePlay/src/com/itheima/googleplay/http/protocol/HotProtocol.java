@@ -6,7 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 /**
  * 排行网络访问
- * @author Kevin
+ * @author liupeng
  * @date 2015-10-30
  */
 public class HotProtocol extends BaseProtocol<ArrayList<String>> {

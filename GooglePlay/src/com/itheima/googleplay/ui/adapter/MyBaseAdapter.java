@@ -15,7 +15,7 @@ import com.itheima.googleplay.utils.UIUtils;
 /**
  * 对adapter的封装
  * 
- * @author Kevin
+ * @author liupeng
  * @date 2015-10-28
  */
 @SuppressWarnings({"rawtypes","unchecked"})

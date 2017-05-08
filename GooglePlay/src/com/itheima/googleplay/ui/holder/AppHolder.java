@@ -16,7 +16,7 @@ import com.lidroid.xutils.BitmapUtils;
 /**
  * 应用holder
  * 
- * @author Kevin
+ * @author liupeng
  * @date 2015-10-28
  */
 public class AppHolder extends BaseHolder<AppInfo> {

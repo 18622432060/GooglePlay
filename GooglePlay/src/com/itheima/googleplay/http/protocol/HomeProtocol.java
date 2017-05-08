@@ -11,7 +11,7 @@ import com.itheima.googleplay.domain.AppInfo;
 /**
  * 首页网络数据解析
  * 
- * @author Kevin
+ * @author liupeng
  * @date 2015-10-28
  */
 public class HomeProtocol extends BaseProtocol<ArrayList<AppInfo>> {

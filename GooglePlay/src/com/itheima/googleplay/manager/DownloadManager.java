@@ -23,7 +23,7 @@ import com.itheima.googleplay.utils.UIUtils;
  * 
  * DownloadManager: 被观察者, 有责任通知所有观察者状态和进度发生变化
  * 
- * @author Kevin
+ * @author liupeng
  * @date 2015-11-4
  */
 public class DownloadManager {

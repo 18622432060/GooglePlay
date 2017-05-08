@@ -2,7 +2,7 @@ package com.itheima.googleplay.domain;
 
 /**
  * 专题对象
- * @author Kevin
+ * @author liupeng
  * @date 2015-10-30
  */
 public class SubjectInfo {

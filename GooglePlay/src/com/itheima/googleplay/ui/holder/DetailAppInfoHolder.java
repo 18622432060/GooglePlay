@@ -16,7 +16,7 @@ import com.lidroid.xutils.BitmapUtils;
 /**
  * 详情页-应用信息
  * 
- * @author Kevin
+ * @author liupeng
  * @date 2015-11-1
  */
 public class DetailAppInfoHolder extends BaseHolder<AppInfo> {

@@ -11,7 +11,7 @@ import com.itheima.googleplay.domain.SubjectInfo;
 /**
  * 专题网络请求
  * 
- * @author Kevin
+ * @author liupeng
  * @date 2015-10-30
  */
 public class SubjectProtocol extends BaseProtocol<ArrayList<SubjectInfo>> {

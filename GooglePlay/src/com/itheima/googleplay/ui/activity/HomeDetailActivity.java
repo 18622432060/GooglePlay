@@ -22,7 +22,7 @@ import com.itheima.googleplay.utils.UIUtils;
 /**
  * 首页应用详情页
  * 
- * @author Kevin
+ * @author liupeng
  * @date 2015-11-1
  */
 public class HomeDetailActivity extends BaseActivity {

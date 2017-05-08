@@ -22,7 +22,7 @@ import com.lidroid.xutils.BitmapUtils;
 /**
  * 首页holder
  * 
- * @author Kevin
+ * @author liupeng
  * @date 2015-10-28
  */
 public class HomeHolder extends BaseHolder<AppInfo> implements

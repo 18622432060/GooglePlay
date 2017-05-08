@@ -30,7 +30,7 @@ import com.itheima.googleplay.utils.UIUtils;
  * 2. 创建状态选择器bg_tab_text和tab_text_color
  * 3. 自动导包
  * 4. 给UIUtils增加方法:getColorStateList
- * @author Kevin
+ * @author liupeng
  * @date 2015-10-27
  */
 @SuppressWarnings({"deprecation","unused"})
@@ -602,4 +602,5 @@ public class PagerTab extends ViewGroup {
 		public int getPageIconResId(int position);
 		public int getPageSelectedIconResId();
 	}
+	
 }

@@ -17,7 +17,7 @@ import com.itheima.googleplay.utils.UIUtils;
 /**
  * 圆形进度条
  * 
- * @author Kevin
+ * @author liupeng
  */
 public class ProgressArc extends View {
 	// ==========================================================================

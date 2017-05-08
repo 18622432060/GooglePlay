@@ -20,7 +20,7 @@ import com.itheima.googleplay.utils.UIUtils;
 /**
  * 推荐
  * 
- * @author Kevin
+ * @author liupeng
  * @date 2015-10-27
  */
 public class RecommendFragment extends BaseFragment {

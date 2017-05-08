@@ -10,6 +10,8 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 import com.itheima.googleplay.R;
 import com.itheima.googleplay.ui.fragment.BaseFragment;
@@ -21,13 +23,16 @@ import com.itheima.googleplay.utils.UIUtils;
  * 当项目和appcompat关联在一起时, 就必须在清单文件中设置Theme.AppCompat的主题, 否则崩溃
  * android:theme="@style/Theme.AppCompat.Light"
  * 
- * @author Kevin
+ * @author liupeng
  * @date 2015-10-27
  */
 public class MainActivity extends BaseActivity {
-
-	private PagerTab mPagerTab;
-	private ViewPager mViewPager;
+	
+    @InjectView(R.id.pager_tab)
+	PagerTab mPagerTab;
+    @InjectView(R.id.viewpager)
+	ViewPager mViewPager;
+    
 	private MyAdapter mAdapter;
 	private ActionBarDrawerToggle toggle;
 
@@ -35,9 +40,7 @@ public class MainActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		mPagerTab = (PagerTab) findViewById(R.id.pager_tab);
-		mViewPager = (ViewPager) findViewById(R.id.viewpager);
+		ButterKnife.inject(this);
 
 		mAdapter = new MyAdapter(getSupportFragmentManager());
 		mViewPager.setAdapter(mAdapter);
@@ -48,19 +51,18 @@ public class MainActivity extends BaseActivity {
 
 			@Override
 			public void onPageSelected(int position) {
-				BaseFragment fragment = FragmentFactory
-						.createFragment(position);
-				// 开始加载数据
-				fragment.loadData();
+				BaseFragment fragment = FragmentFactory.createFragment(position);
+				fragment.loadData();// 开始加载数据
 			}
 
 			@Override
-			public void onPageScrolled(int position, float positionOffset,
-					int positionOffsetPixels) {
+			public void onPageScrolled(int position, float positionOffset,int positionOffsetPixels) {
+			
 			}
 
 			@Override
 			public void onPageScrollStateChanged(int state) {
+			
 			}
 		});
 
@@ -77,25 +79,21 @@ public class MainActivity extends BaseActivity {
 		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);
 
 		// 初始化抽屉开关
-		toggle = new ActionBarDrawerToggle(this, drawer,
-				R.drawable.ic_drawer_am, R.string.drawer_open,
-				R.string.drawer_close);
-
+		toggle = new ActionBarDrawerToggle(this, drawer,R.drawable.ic_drawer_am, R.string.drawer_open,R.string.drawer_close);
 		toggle.syncState();// 同步状态, 将DrawerLayout和开关关联在一起
+		
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case android.R.id.home:
-			// 切换抽屉
-			toggle.onOptionsItemSelected(item);
-			break;
-
-		default:
-			break;
+			case android.R.id.home:
+				// 切换抽屉
+				toggle.onOptionsItemSelected(item);
+				break;
+			default:
+				break;
 		}
-
 		return super.onOptionsItemSelected(item);
 	}
 

@@ -17,11 +17,8 @@ public abstract class BaseFragment extends Fragment {
 	private LoadingPage mLoadingPage;
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		// 使用textview显示当前类的类名
-		// TextView view = new TextView(UIUtils.getContext());
-		// view.setText(getClass().getSimpleName());
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+  
 		mLoadingPage = new LoadingPage(UIUtils.getContext()) {
 
 			@Override
@@ -36,7 +33,6 @@ public abstract class BaseFragment extends Fragment {
 			}
 
 		};
-
 		return mLoadingPage;
 	}
 
@@ -58,7 +54,6 @@ public abstract class BaseFragment extends Fragment {
 		if (obj != null) {
 			if (obj instanceof ArrayList) {// 判断是否是集合
 				ArrayList list = (ArrayList) obj;
-
 				if (list.isEmpty()) {
 					return ResultState.STATE_EMPTY;
 				} else {
@@ -66,7 +61,7 @@ public abstract class BaseFragment extends Fragment {
 				}
 			}
 		}
-
 		return ResultState.STATE_ERROR;
 	}
+	
 }

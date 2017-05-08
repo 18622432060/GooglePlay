@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 线程管理器
  * 
- * @author Kevin
+ * @author liupeng
  * @date 2015-11-4
  */
 public class ThreadManager {
@@ -23,13 +23,12 @@ public class ThreadManager {
 					int cpuCount = Runtime.getRuntime().availableProcessors();// 获取cpu数量
 					System.out.println("cup个数:" + cpuCount);
 
-					// int threadCount = cpuCount * 2 + 1;//线程个数
-					int threadCount = 10;
+					int threadCount = cpuCount * 2 + 1;//线程个数
+//					int threadCount = 10;
 					mThreadPool = new ThreadPool(threadCount, threadCount, 1L);
 				}
 			}
 		}
-
 		return mThreadPool;
 	}
 
