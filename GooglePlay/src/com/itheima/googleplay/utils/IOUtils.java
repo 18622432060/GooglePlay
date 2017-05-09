@@ -3,6 +3,9 @@ package com.itheima.googleplay.utils;
 import java.io.Closeable;
 import java.io.IOException;
 
+/**
+ * @author liupeng
+ */
 public class IOUtils {
 	/** 关闭流 */
 	public static boolean close(Closeable io) {

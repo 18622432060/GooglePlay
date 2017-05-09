@@ -15,6 +15,7 @@ import com.itheima.googleplay.ui.view.LoadingPage.ResultState;
 import com.itheima.googleplay.ui.view.fly.ShakeListener;
 import com.itheima.googleplay.ui.view.fly.StellarMap;
 import com.itheima.googleplay.ui.view.fly.ShakeListener.OnShakeListener;
+import com.itheima.googleplay.utils.LogUtils;
 import com.itheima.googleplay.utils.UIUtils;
 
 /**
@@ -86,8 +87,6 @@ public class RecommendFragment extends BaseFragment {
 			// 因为position每组都会从0开始计数, 所以需要将前面几组数据的个数加起来,才能确定当前组获取数据的角标位置
 			position += (group) * getCount(group - 1);
 
-			// System.out.println("pos:" + position);
-
 			final String keyword = data.get(position);
 
 			TextView view = new TextView(UIUtils.getContext());
@@ -121,7 +120,8 @@ public class RecommendFragment extends BaseFragment {
 		// 返回下一组的id
 		@Override
 		public int getNextGroupOnZoom(int group, boolean isZoomIn) {
-			System.out.println("isZoomIn:" + isZoomIn);
+			LogUtils.v("isZoomIn:" + isZoomIn);
+
 			if (isZoomIn) {
 				// 往下滑加载上一页
 				if (group > 0) {

@@ -6,6 +6,8 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor.AbortPolicy;
 import java.util.concurrent.TimeUnit;
 
+import com.itheima.googleplay.utils.LogUtils;
+
 /**
  * 线程管理器
  * 
@@ -21,7 +23,7 @@ public class ThreadManager {
 			synchronized (ThreadManager.class) {
 				if (mThreadPool == null) {
 					int cpuCount = Runtime.getRuntime().availableProcessors();// 获取cpu数量
-					System.out.println("cup个数:" + cpuCount);
+					LogUtils.v("cup个数:" + cpuCount);
 
 					int threadCount = cpuCount * 2 + 1;//线程个数
 //					int threadCount = 10;

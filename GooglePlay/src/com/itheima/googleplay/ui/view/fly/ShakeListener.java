@@ -1,5 +1,7 @@
 package com.itheima.googleplay.ui.view.fly;
 
+import com.itheima.googleplay.utils.LogUtils;
+
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -55,13 +57,12 @@ public class ShakeListener implements SensorEventListener {
 
 	@Override
 	public void onAccuracyChanged(Sensor sensor, int accuracy) {
-		System.out.println("accuracy:"+accuracy);
+		LogUtils.v("accuracy:"+accuracy);
 	}
 
 	@Override
 	public void onSensorChanged(SensorEvent event) {
 
-		//System.out.println("x:"+event.values[SensorManager.DATA_X]+"  y:"+event.values[SensorManager.DATA_Y] + "  z:"+event.values[SensorManager.DATA_Z]);
 
 		if (event.sensor.getType() != Sensor.TYPE_ACCELEROMETER) {
 			return;

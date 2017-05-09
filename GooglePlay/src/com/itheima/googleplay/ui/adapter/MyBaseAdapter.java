@@ -96,7 +96,6 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
 				loadMore(moreHolder);
 			}
 		}
-
 		return holder.getRootView();
 	}
 
@@ -114,65 +113,22 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
 	public void loadMore(final MoreHolder holder) {
 		if (!isLoadMore) {
 			isLoadMore = true;
-
-//			new Thread() {
-//				@Override
-//				public void run() {
-//					final ArrayList<T> moreData = onLoadMore();
-//
-//					UIUtils.runOnUIThread(new Runnable() {
-//
-//						@Override
-//						public void run() {
-//							if (moreData != null) {
-//								// 每一页有20条数据, 如果返回的数据小于20条, 就认为到了最后一页了
-//								if (moreData.size() < 20) {
-//									holder.setData(MoreHolder.STATE_MORE_NONE);
-//									Toast.makeText(UIUtils.getContext(),
-//											"没有更多数据了", Toast.LENGTH_SHORT)
-//											.show();
-//								} else {
-//									// 还有更多数据
-//									holder.setData(MoreHolder.STATE_MORE_MORE);
-//								}
-//
-//								// 将更多数据追加到当前集合中
-//								data.addAll(moreData);
-//								// 刷新界面
-//								MyBaseAdapter.this.notifyDataSetChanged();
-//							} else {
-//								// 加载更多失败
-//								holder.setData(MoreHolder.STATE_MORE_ERROR);
-//							}
-//
-//							isLoadMore = false;
-//						}
-//					});
-//				}
-//			}.start();
-			
 			ThreadManager.getThreadPool().execute(new Runnable() {
-				
 				@Override
 				public void run() {
 					final ArrayList<T> moreData = onLoadMore();
-
 					UIUtils.runOnUIThread(new Runnable() {
-
 						@Override
 						public void run() {
 							if (moreData != null) {
 								// 每一页有20条数据, 如果返回的数据小于20条, 就认为到了最后一页了
 								if (moreData.size() < 20) {
 									holder.setData(MoreHolder.STATE_MORE_NONE);
-									Toast.makeText(UIUtils.getContext(),
-											"没有更多数据了", Toast.LENGTH_SHORT)
-											.show();
+									Toast.makeText(UIUtils.getContext(),"没有更多数据了", Toast.LENGTH_SHORT).show();
 								} else {
 									// 还有更多数据
 									holder.setData(MoreHolder.STATE_MORE_MORE);
 								}
-
 								// 将更多数据追加到当前集合中
 								data.addAll(moreData);
 								// 刷新界面
@@ -181,14 +137,12 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
 								// 加载更多失败
 								holder.setData(MoreHolder.STATE_MORE_ERROR);
 							}
-
 							isLoadMore = false;
 						}
 					});
 				}
 			});
 		}
-
 	}
 
 	// 加载更多数据, 必须由子类实现

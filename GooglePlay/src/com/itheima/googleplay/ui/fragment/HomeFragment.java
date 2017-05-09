@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.TextView;
 
 import com.itheima.googleplay.domain.AppInfo;
 import com.itheima.googleplay.http.protocol.HomeProtocol;
@@ -36,20 +35,15 @@ public class HomeFragment extends BaseFragment {
 	@Override
 	public View onCreateSuccessView() {
 		MyListView view = new MyListView(UIUtils.getContext());
-
 		// 给listview增加头布局展示轮播条
 		HomeHeaderHolder header = new HomeHeaderHolder();
 		view.addHeaderView(header.getRootView());// 先添加头布局,再setAdapter
-
 		view.setAdapter(new HomeAdapter(data));
-
 		if (mPictureList != null) {
 			// 设置轮播条数据
 			header.setData(mPictureList);
 		}
-
 		view.setOnItemClickListener(new OnItemClickListener() {
-
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
 				AppInfo appInfo = data.get(position - 1);// 去掉头布局
@@ -60,7 +54,6 @@ public class HomeFragment extends BaseFragment {
 				}
 			}
 		});
-
 		return view;
 	}
 
@@ -70,9 +63,7 @@ public class HomeFragment extends BaseFragment {
 		// 请求网络, HttpClient, HttpUrlConnection, XUtils
 		HomeProtocol protocol = new HomeProtocol();
 		data = protocol.getData(0);// 加载第一页数据
-
 		mPictureList = protocol.getPictureList();
-
 		return check(data);// 校验数据并返回
 	}
 
@@ -96,10 +87,6 @@ public class HomeFragment extends BaseFragment {
 			return moreData;
 		}
 
-	}
-
-	static class ViewHolder {
-		public TextView tvContent;
 	}
 
 }

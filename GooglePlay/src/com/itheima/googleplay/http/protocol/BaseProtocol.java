@@ -9,6 +9,7 @@ import java.io.IOException;
 import com.itheima.googleplay.http.HttpHelper;
 import com.itheima.googleplay.http.HttpHelper.HttpResult;
 import com.itheima.googleplay.utils.IOUtils;
+import com.itheima.googleplay.utils.LogUtils;
 import com.itheima.googleplay.utils.StringUtils;
 import com.itheima.googleplay.utils.UIUtils;
 
@@ -24,18 +25,15 @@ public abstract class BaseProtocol<T> {
 	public T getData(int index) {
 		// 先判断是否有缓存, 有的话就加载缓存
 		String result = getCache(index);
-
 		if (StringUtils.isEmpty(result)) {// 如果没有缓存,或者缓存失效
 			// 请求服务器
 			result = getDataFromServer(index);
 		}
-
 		// 开始解析
 		if (result != null) {
 			T data = parseData(result);
 			return data;
 		}
-
 		return null;
 	}
 
@@ -43,20 +41,16 @@ public abstract class BaseProtocol<T> {
 	// index表示的是从哪个位置开始返回20条数据, 用于分页
 	private String getDataFromServer(int index) {
 		// http://www.itheima.com/home?index=0&name=zhangsan&age=18
-		HttpResult httpResult = HttpHelper.get(HttpHelper.URL + getKey()
-				+ "?index=" + index + getParams());
-
+		HttpResult httpResult = HttpHelper.get(HttpHelper.URL + getKey() + "?index=" + index + getParams());
 		if (httpResult != null) {
 			String result = httpResult.getString();
-			System.out.println("访问结果:" + result);
+			LogUtils.v("访问结果:" + result);
 			// 写缓存
 			if (!StringUtils.isEmpty(result)) {
 				setCache(index, result);
 			}
-
 			return result;
 		}
-
 		return null;
 	}
 
@@ -72,9 +66,7 @@ public abstract class BaseProtocol<T> {
 		// 以url为文件名, 以json为文件内容,保存在本地
 		File cacheDir = UIUtils.getContext().getCacheDir();// 本应用的缓存文件夹
 		// 生成缓存文件
-		File cacheFile = new File(cacheDir, getKey() + "?index=" + index
-				+ getParams());
-
+		File cacheFile = new File(cacheDir, getKey() + "?index=" + index + getParams());
 		FileWriter writer = null;
 		try {
 			writer = new FileWriter(cacheFile);
@@ -95,9 +87,7 @@ public abstract class BaseProtocol<T> {
 		// 以url为文件名, 以json为文件内容,保存在本地
 		File cacheDir = UIUtils.getContext().getCacheDir();// 本应用的缓存文件夹
 		// 生成缓存文件
-		File cacheFile = new File(cacheDir, getKey() + "?index=" + index
-				+ getParams());
-
+		File cacheFile = new File(cacheDir, getKey() + "?index=" + index + getParams());
 		// 判断缓存是否存在
 		if (cacheFile.exists()) {
 			// 判断缓存是否有效
@@ -106,30 +96,25 @@ public abstract class BaseProtocol<T> {
 				reader = new BufferedReader(new FileReader(cacheFile));
 				String deadline = reader.readLine();// 读取第一行的有效期
 				long deadtime = Long.parseLong(deadline);
-
-				if (System.currentTimeMillis() < deadtime) {// 当前时间小于截止时间,
-															// 说明缓存有效
+				if (System.currentTimeMillis() < deadtime) {// 当前时间小于截止时间,说明缓存有效
 					// 缓存有效
 					StringBuffer sb = new StringBuffer();
 					String line;
 					while ((line = reader.readLine()) != null) {
 						sb.append(line);
 					}
-
 					return sb.toString();
 				}
-
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
 				IOUtils.close(reader);
 			}
-
 		}
-
 		return null;
 	}
 
 	// 解析json数据, 子类必须实现
 	public abstract T parseData(String result);
+
 }

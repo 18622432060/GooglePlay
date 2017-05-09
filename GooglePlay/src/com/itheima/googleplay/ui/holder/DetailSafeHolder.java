@@ -14,6 +14,7 @@ import com.itheima.googleplay.domain.AppInfo;
 import com.itheima.googleplay.domain.AppInfo.SafeInfo;
 import com.itheima.googleplay.http.HttpHelper;
 import com.itheima.googleplay.utils.BitmapHelper;
+import com.itheima.googleplay.utils.LogUtils;
 import com.itheima.googleplay.utils.UIUtils;
 import com.lidroid.xutils.BitmapUtils;
 import com.nineoldandroids.animation.Animator;
@@ -113,8 +114,7 @@ public class DetailSafeHolder extends BaseHolder<AppInfo> {
 			public void onAnimationUpdate(ValueAnimator animator) {
 				// 获取最新的高度值
 				Integer height = (Integer) animator.getAnimatedValue();
-
-				System.out.println("最新高度:" + height);
+				LogUtils.v("最新高度:" + height);
 
 				// 重新修改布局高度
 				mParams.height = height;
@@ -183,7 +183,7 @@ public class DetailSafeHolder extends BaseHolder<AppInfo> {
 		llDesRoot.measure(0, 0);
 		mDesHeight = llDesRoot.getMeasuredHeight();
 
-		System.out.println("安全描述高度:" + mDesHeight);
+		LogUtils.v("安全描述高度:" + mDesHeight);
 
 		// 修改安全描述布局高度为0,达到隐藏效果
 		mParams = (LinearLayout.LayoutParams) llDesRoot.getLayoutParams();

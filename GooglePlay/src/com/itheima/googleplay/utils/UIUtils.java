@@ -8,6 +8,9 @@ import android.view.View;
 
 import com.itheima.googleplay.global.GooglePlayApplication;
 
+/**
+ * @author liupeng
+ */
 public class UIUtils {
 
 	public static Context getContext() {
@@ -43,8 +46,8 @@ public class UIUtils {
 	public static int getColor(int id) {
 		return getContext().getResources().getColor(id);
 	}
-	
-	//根据id获取颜色的状态选择器
+
+	// 根据id获取颜色的状态选择器
 	public static ColorStateList getColorStateList(int id) {
 		return getContext().getResources().getColorStateList(id);
 	}
@@ -78,7 +81,6 @@ public class UIUtils {
 		if (myTid == getMainThreadId()) {
 			return true;
 		}
-
 		return false;
 	}
 

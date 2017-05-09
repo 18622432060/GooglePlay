@@ -1,12 +1,15 @@
 package com.itheima.googleplay.utils;
+
 import android.util.Log;
 
-
+/**
+ * @author liupeng
+ */
 public class LogUtils {
 	/** 日志输出级别NONE */
 	public static final int LEVEL_NONE = 0;
 	/** 日志输出级别E */
-	public static final int LEVEL_ERROR =1;
+	public static final int LEVEL_ERROR = 1;
 	/** 日志输出级别W */
 	public static final int LEVEL_WARN = 2;
 	/** 日志输出级别I */

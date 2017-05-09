@@ -22,6 +22,9 @@ import com.itheima.googleplay.utils.IOUtils;
 import com.itheima.googleplay.utils.LogUtils;
 import com.itheima.googleplay.utils.StringUtils;
 
+/**
+ * @author liupeng
+ */
 public class HttpHelper {
 
 	public static final String URL = "http://127.0.0.1:8090/";

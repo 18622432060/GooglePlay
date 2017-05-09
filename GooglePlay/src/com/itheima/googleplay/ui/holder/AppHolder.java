@@ -37,10 +37,7 @@ public class AppHolder extends BaseHolder<AppInfo> {
 		tvDes = (TextView) view.findViewById(R.id.tv_des);
 		ivIcon = (ImageView) view.findViewById(R.id.iv_icon);
 		rbStar = (RatingBar) view.findViewById(R.id.rb_star);
-
-		//mBitmapUtils = new BitmapUtils(UIUtils.getContext());
 		mBitmapUtils = BitmapHelper.getBitmapUtils();
-
 		return view;
 	}
 
@@ -50,9 +47,7 @@ public class AppHolder extends BaseHolder<AppInfo> {
 		tvSize.setText(Formatter.formatFileSize(UIUtils.getContext(), data.size));
 		tvDes.setText(data.des);
 		rbStar.setRating(data.stars);
-
-		mBitmapUtils.display(ivIcon, HttpHelper.URL + "image?name="
-				+ data.iconUrl);
+		mBitmapUtils.display(ivIcon, HttpHelper.URL + "image?name=" + data.iconUrl);
 	}
 
 }

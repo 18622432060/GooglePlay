@@ -16,7 +16,11 @@ import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 
+/**
+ * @author liupeng
+ */
 public class HttpClientFactory {
+	
 	/** http请求最大并发连接数 */
 	private static final int MAX_CONNECTIONS = 10;
 	/** 超时时间 */

@@ -2,6 +2,11 @@ package com.itheima.googleplay.ui.holder;
 
 import android.view.View;
 
+/**
+ * @author liupeng
+ *
+ * @param <T>
+ */
 public abstract class BaseHolder<T> {
 
 	private View mRootView;// 一个item的根布局

@@ -26,8 +26,7 @@ public class MyListView extends ListView {
 	private void initView() {
 		this.setSelector(new ColorDrawable());// 设置默认状态选择器为全透明
 		this.setDivider(null);// 去掉分隔线
-		this.setCacheColorHint(Color.TRANSPARENT);// 有时候滑动listview背景会变成黑色,
-													// 此方法将背景变为全透明
+		this.setCacheColorHint(Color.TRANSPARENT);// 有时候滑动listview背景会变成黑色, 此方法将背景变为全透明
 	}
 
 }

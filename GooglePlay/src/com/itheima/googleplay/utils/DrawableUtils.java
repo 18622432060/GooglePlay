@@ -4,6 +4,9 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 
+/**
+ * @author liupeng
+ */
 public class DrawableUtils {
 
 	//获取一个shape对象
@@ -13,7 +16,6 @@ public class DrawableUtils {
 		shape.setShape(GradientDrawable.RECTANGLE);// 矩形
 		shape.setCornerRadius(radius);// 圆角半径
 		shape.setColor(color);// 颜色
-
 		return shape;
 	}
 
@@ -22,7 +24,6 @@ public class DrawableUtils {
 		StateListDrawable selector = new StateListDrawable();
 		selector.addState(new int[] { android.R.attr.state_pressed }, press);// 按下图片
 		selector.addState(new int[] {}, normal);// 默认图片
-
 		return selector;
 	}
 	
@@ -33,6 +34,5 @@ public class DrawableUtils {
 		StateListDrawable selector = getSelector(bgNormal, bgPress);
 		return selector;
 	}
-
 
 }

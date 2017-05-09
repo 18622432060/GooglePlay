@@ -2,6 +2,9 @@ package com.itheima.googleplay.utils;
 
 import com.lidroid.xutils.BitmapUtils;
 
+/**
+ * @author liupeng
+ */
 public class BitmapHelper {
 
 	private static BitmapUtils mBitmapUtils = null;
@@ -15,7 +18,6 @@ public class BitmapHelper {
 				}
 			}
 		}
-
 		return mBitmapUtils;
 	}
 }

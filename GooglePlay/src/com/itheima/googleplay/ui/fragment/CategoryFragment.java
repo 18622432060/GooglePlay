@@ -53,11 +53,9 @@ public class CategoryFragment extends BaseFragment {
 		public int getInnerType(int position) {
 			// 判断是标题类型还是普通分类类型
 			CategoryInfo info = data.get(position);
-
 			if (info.isTitle) {
 				// 返回标题类型
-				return super.getInnerType(position) + 1;// 原来类型基础上加1; 注意:
-														// 将TYPE_NORMAL修改为1;
+				return super.getInnerType(position) + 1;// 原来类型基础上加1; 注意:将TYPE_NORMAL修改为1;
 			} else {
 				// 返回普通类型
 				return super.getInnerType(position);
@@ -68,7 +66,6 @@ public class CategoryFragment extends BaseFragment {
 		public BaseHolder<CategoryInfo> getHolder(int position) {
 			// 判断是标题类型还是普通分类类型, 来返回不同的holder
 			CategoryInfo info = data.get(position);
-
 			if (info.isTitle) {
 				return new TitleHolder();
 			} else {
@@ -87,4 +84,5 @@ public class CategoryFragment extends BaseFragment {
 		}
 
 	}
+	
 }

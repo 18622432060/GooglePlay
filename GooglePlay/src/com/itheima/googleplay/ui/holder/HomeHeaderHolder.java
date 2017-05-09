@@ -40,15 +40,12 @@ public class HomeHeaderHolder extends BaseHolder<ArrayList<String>> {
 		// 创建根布局, 相对布局
 		RelativeLayout rlRoot = new RelativeLayout(UIUtils.getContext());
 		// 初始化布局参数, 根布局上层控件是listview, 所以要使用listview定义的LayoutParams
-		AbsListView.LayoutParams params = new AbsListView.LayoutParams(
-				AbsListView.LayoutParams.MATCH_PARENT, UIUtils.dip2px(150));
+		AbsListView.LayoutParams params = new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT, UIUtils.dip2px(150));
 		rlRoot.setLayoutParams(params);
 
 		// ViewPager
 		mViewPager = new ViewPager(UIUtils.getContext());
-		RelativeLayout.LayoutParams vpParams = new RelativeLayout.LayoutParams(
-				RelativeLayout.LayoutParams.MATCH_PARENT,
-				RelativeLayout.LayoutParams.MATCH_PARENT);
+		RelativeLayout.LayoutParams vpParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT);
 		// mViewPager.setLayoutParams(vpParams);
 		rlRoot.addView(mViewPager, vpParams);// 把viewpager添加给相对布局
 
@@ -56,9 +53,7 @@ public class HomeHeaderHolder extends BaseHolder<ArrayList<String>> {
 		llContainer = new LinearLayout(UIUtils.getContext());
 		llContainer.setOrientation(LinearLayout.HORIZONTAL);// 水平方向
 
-		RelativeLayout.LayoutParams llParams = new RelativeLayout.LayoutParams(
-				RelativeLayout.LayoutParams.WRAP_CONTENT,
-				RelativeLayout.LayoutParams.WRAP_CONTENT);
+		RelativeLayout.LayoutParams llParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
 
 		// 设置内边距
 		int padding = UIUtils.dip2px(10);

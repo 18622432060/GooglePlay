@@ -14,6 +14,7 @@ import com.itheima.googleplay.domain.DownloadInfo;
 import com.itheima.googleplay.http.HttpHelper;
 import com.itheima.googleplay.http.HttpHelper.HttpResult;
 import com.itheima.googleplay.utils.IOUtils;
+import com.itheima.googleplay.utils.LogUtils;
 import com.itheima.googleplay.utils.UIUtils;
 
 /**
@@ -95,7 +96,7 @@ public class DownloadManager {
 		downloadInfo.currentState = STATE_WAITING;// 状态切换为等待下载
 		notifyDownloadStateChanged(downloadInfo);// 通知所有的观察者, 状态发生变化了
 
-		System.out.println(downloadInfo.name + "等待下载啦");
+		LogUtils.v(downloadInfo.name + "等待下载啦");
 
 		// 将下载对象放入集合中
 		mDownloadInfoMap.put(downloadInfo.id, downloadInfo);
@@ -119,7 +120,7 @@ public class DownloadManager {
 
 		@Override
 		public void run() {
-			System.out.println(downloadInfo.name + "开始下载啦");
+			LogUtils.v(downloadInfo.name + "开始下载啦");
 
 			// 状态切换为正在下载
 			downloadInfo.currentState = STATE_DOWNLOADING;
@@ -129,8 +130,7 @@ public class DownloadManager {
 
 			HttpResult httpResult;
 
-			if (!file.exists() || file.length() != downloadInfo.currentPos
-					|| downloadInfo.currentPos == 0) {
+			if (!file.exists() || file.length() != downloadInfo.currentPos|| downloadInfo.currentPos == 0) {
 				// 从头开始下载
 				// 删除无效文件
 				file.delete();// 文件如果不存在也是可以删除的, 只不过没有效果而已

@@ -25,8 +25,7 @@ import com.lidroid.xutils.BitmapUtils;
  * @author liupeng
  * @date 2015-10-28
  */
-public class HomeHolder extends BaseHolder<AppInfo> implements
-		DownloadObserver, OnClickListener {
+public class HomeHolder extends BaseHolder<AppInfo> implements DownloadObserver, OnClickListener {
 
 	private DownloadManager mDM;
 
@@ -53,15 +52,13 @@ public class HomeHolder extends BaseHolder<AppInfo> implements
 		tvDes = (TextView) view.findViewById(R.id.tv_des);
 		ivIcon = (ImageView) view.findViewById(R.id.iv_icon);
 		rbStar = (RatingBar) view.findViewById(R.id.rb_star);
-
 		tvDownload = (TextView) view.findViewById(R.id.tv_download);
 
 		// mBitmapUtils = new BitmapUtils(UIUtils.getContext());
-		mBitmapUtils = BitmapHelper.getBitmapUtils();
+		mBitmapUtils = BitmapHelper.getBitmapUtils();//懒汉模式
 
 		// 初始化进度条
-		FrameLayout flProgress = (FrameLayout) view
-				.findViewById(R.id.fl_progress);
+		FrameLayout flProgress = (FrameLayout) view.findViewById(R.id.fl_progress);
 		flProgress.setOnClickListener(this);
 
 		pbProgress = new ProgressArc(UIUtils.getContext());
@@ -70,11 +67,8 @@ public class HomeHolder extends BaseHolder<AppInfo> implements
 		// 设置进度条颜色
 		pbProgress.setProgressColor(UIUtils.getColor(R.color.progress));
 		// 设置进度条宽高布局参数
-		FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
-				UIUtils.dip2px(27), UIUtils.dip2px(27));
+		FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(UIUtils.dip2px(27), UIUtils.dip2px(27));
 		flProgress.addView(pbProgress, params);
-
-		// pbProgress.setOnClickListener(this);
 
 		mDM = DownloadManager.getInstance();
 		mDM.registerObserver(this);// 注册观察者, 监听状态和进度变化
@@ -89,8 +83,7 @@ public class HomeHolder extends BaseHolder<AppInfo> implements
 		tvDes.setText(data.des);
 		rbStar.setRating(data.stars);
 
-		mBitmapUtils.display(ivIcon, HttpHelper.URL + "image?name="
-				+ data.iconUrl);
+		mBitmapUtils.display(ivIcon, HttpHelper.URL + "image?name=" + data.iconUrl);
 
 		// 判断当前应用是否下载过
 		DownloadInfo downloadInfo = mDM.getDownloadInfo(data);
@@ -118,47 +111,45 @@ public class HomeHolder extends BaseHolder<AppInfo> implements
 		if (!getData().id.equals(id)) {
 			return;
 		}
-
 		mCurrentState = state;
 		mProgress = progress;
 		switch (state) {
-		case DownloadManager.STATE_UNDO:
-			// 自定义进度条背景
-			pbProgress.setBackgroundResource(R.drawable.ic_download);
-			// 没有进度
-			pbProgress.setStyle(ProgressArc.PROGRESS_STYLE_NO_PROGRESS);
-			tvDownload.setText("下载");
-			break;
-		case DownloadManager.STATE_WAITING:
-			pbProgress.setBackgroundResource(R.drawable.ic_download);
-			// 等待模式
-			pbProgress.setStyle(ProgressArc.PROGRESS_STYLE_WAITING);
-			tvDownload.setText("等待");
-			break;
-		case DownloadManager.STATE_DOWNLOADING:
-			pbProgress.setBackgroundResource(R.drawable.ic_pause);
-			// 下载中模式
-			pbProgress.setStyle(ProgressArc.PROGRESS_STYLE_DOWNLOADING);
-			pbProgress.setProgress(progress, true);
-			tvDownload.setText((int) (progress * 100) + "%");
-			break;
-		case DownloadManager.STATE_PAUSE:
-			pbProgress.setBackgroundResource(R.drawable.ic_resume);
-			pbProgress.setStyle(ProgressArc.PROGRESS_STYLE_NO_PROGRESS);
-			break;
-		case DownloadManager.STATE_ERROR:
-			pbProgress.setBackgroundResource(R.drawable.ic_redownload);
-			pbProgress.setStyle(ProgressArc.PROGRESS_STYLE_NO_PROGRESS);
-			tvDownload.setText("下载失败");
-			break;
-		case DownloadManager.STATE_SUCCESS:
-			pbProgress.setBackgroundResource(R.drawable.ic_install);
-			pbProgress.setStyle(ProgressArc.PROGRESS_STYLE_NO_PROGRESS);
-			tvDownload.setText("安装");
-			break;
-
-		default:
-			break;
+			case DownloadManager.STATE_UNDO:
+				// 自定义进度条背景
+				pbProgress.setBackgroundResource(R.drawable.ic_download);
+				// 没有进度
+				pbProgress.setStyle(ProgressArc.PROGRESS_STYLE_NO_PROGRESS);
+				tvDownload.setText("下载");
+				break;
+			case DownloadManager.STATE_WAITING:
+				pbProgress.setBackgroundResource(R.drawable.ic_download);
+				// 等待模式
+				pbProgress.setStyle(ProgressArc.PROGRESS_STYLE_WAITING);
+				tvDownload.setText("等待");
+				break;
+			case DownloadManager.STATE_DOWNLOADING:
+				pbProgress.setBackgroundResource(R.drawable.ic_pause);
+				// 下载中模式
+				pbProgress.setStyle(ProgressArc.PROGRESS_STYLE_DOWNLOADING);
+				pbProgress.setProgress(progress, true);
+				tvDownload.setText((int) (progress * 100) + "%");
+				break;
+			case DownloadManager.STATE_PAUSE:
+				pbProgress.setBackgroundResource(R.drawable.ic_resume);
+				pbProgress.setStyle(ProgressArc.PROGRESS_STYLE_NO_PROGRESS);
+				break;
+			case DownloadManager.STATE_ERROR:
+				pbProgress.setBackgroundResource(R.drawable.ic_redownload);
+				pbProgress.setStyle(ProgressArc.PROGRESS_STYLE_NO_PROGRESS);
+				tvDownload.setText("下载失败");
+				break;
+			case DownloadManager.STATE_SUCCESS:
+				pbProgress.setBackgroundResource(R.drawable.ic_install);
+				pbProgress.setStyle(ProgressArc.PROGRESS_STYLE_NO_PROGRESS);
+				tvDownload.setText("安装");
+				break;
+			default:
+				break;
 		}
 	}
 
@@ -168,7 +159,6 @@ public class HomeHolder extends BaseHolder<AppInfo> implements
 		AppInfo appInfo = getData();
 		if (appInfo.id.equals(info.id)) {
 			UIUtils.runOnUIThread(new Runnable() {
-
 				@Override
 				public void run() {
 					refreshUI(info.currentState, info.getProgress(), info.id);
@@ -190,23 +180,18 @@ public class HomeHolder extends BaseHolder<AppInfo> implements
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.fl_progress:
-			// 根据当前状态来决定下一步操作
-			if (mCurrentState == DownloadManager.STATE_UNDO
-					|| mCurrentState == DownloadManager.STATE_ERROR
-					|| mCurrentState == DownloadManager.STATE_PAUSE) {
-				mDM.download(getData());// 开始下载
-			} else if (mCurrentState == DownloadManager.STATE_DOWNLOADING
-					|| mCurrentState == DownloadManager.STATE_WAITING) {
-				mDM.pause(getData());// 暂停下载
-			} else if (mCurrentState == DownloadManager.STATE_SUCCESS) {
-				mDM.install(getData());// 开始安装
-			}
-
-			break;
-
-		default:
-			break;
+			case R.id.fl_progress:
+				// 根据当前状态来决定下一步操作
+				if (mCurrentState == DownloadManager.STATE_UNDO || mCurrentState == DownloadManager.STATE_ERROR || mCurrentState == DownloadManager.STATE_PAUSE) {
+					mDM.download(getData());// 开始下载
+				} else if (mCurrentState == DownloadManager.STATE_DOWNLOADING || mCurrentState == DownloadManager.STATE_WAITING) {
+					mDM.pause(getData());// 暂停下载
+				} else if (mCurrentState == DownloadManager.STATE_SUCCESS) {
+					mDM.install(getData());// 开始安装
+				}
+				break;
+			default:
+				break;
 		}
 	}
 

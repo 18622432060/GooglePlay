@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 import com.itheima.googleplay.R;
 import com.itheima.googleplay.ui.activity.BaseActivity;
+import com.itheima.googleplay.utils.LogUtils;
 import com.itheima.googleplay.utils.UIUtils;
 /**
  * 1. 创建BaseActivity继承ActionbarActivity(导入v7包)
@@ -588,7 +589,8 @@ public class PagerTab extends ViewGroup {
 
 		@Override
 		public void onPageSelected(int position) {
-			System.out.println("onPageSelected:" + position);
+			LogUtils.v("onPageSelected:" + position);
+
 			mSelectedPosition = position;
 			selectTab(position);
 			if (mDelegatePageListener != null) {

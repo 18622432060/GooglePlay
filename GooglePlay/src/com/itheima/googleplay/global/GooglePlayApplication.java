@@ -9,6 +9,8 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 
+import com.itheima.googleplay.utils.LogUtils;
+
 /**
  * 自定义application, 进行全局初始化
  * 
@@ -47,7 +49,7 @@ public class GooglePlayApplication extends Application {
 		// Throwable : Error和Exception的父类
 		@Override
 		public void uncaughtException(Thread thread, Throwable ex) {
-			System.out.println("哥捕获异常了......");
+			LogUtils.v("哥捕获异常了......");
 			ex.printStackTrace();
 			try {
 				// 将捕获到异常,保存到SD卡中
