@@ -7,8 +7,12 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+/**
+ * @author liupeng
+ */
 @SuppressWarnings("deprecation")
 public class ShakeListener implements SensorEventListener {
+	
 	private static final int FORCE_THRESHOLD = 250;
 	private static final int TIME_THRESHOLD = 100;
 	private static final int SHAKE_TIMEOUT = 500;
@@ -39,7 +43,6 @@ public class ShakeListener implements SensorEventListener {
 		if (mSensorMgr == null) {
 			throw new UnsupportedOperationException("Sensors not supported");
 		}
-
 		boolean supported = mSensorMgr.registerListener(this, mSensorMgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_UI);
 		if (!supported) {
 			mSensorMgr.unregisterListener(this);
@@ -62,18 +65,13 @@ public class ShakeListener implements SensorEventListener {
 
 	@Override
 	public void onSensorChanged(SensorEvent event) {
-
-
 		if (event.sensor.getType() != Sensor.TYPE_ACCELEROMETER) {
 			return;
 		}
-
 		long now = System.currentTimeMillis();
-
 		if ((now - mLastForce) > SHAKE_TIMEOUT) {
 			mShakeCount = 0;
 		}
-
 		if ((now - mLastTime) > TIME_THRESHOLD) {
 			long diff = now - mLastTime;
 			// 把X,Y,Z方向的距离除以时间，得出速度
@@ -99,4 +97,5 @@ public class ShakeListener implements SensorEventListener {
 	public interface OnShakeListener {
 		public void onShake();
 	}
+	
 }

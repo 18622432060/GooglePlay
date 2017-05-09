@@ -7,6 +7,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 import com.itheima.googleplay.R;
 import com.itheima.googleplay.domain.AppInfo;
@@ -27,38 +29,37 @@ import com.lidroid.xutils.BitmapUtils;
  */
 public class HomeHolder extends BaseHolder<AppInfo> implements DownloadObserver, OnClickListener {
 
+	@InjectView(R.id.tv_name)
+	TextView tvName;
+	@InjectView(R.id.tv_size)
+	TextView tvSize;
+	@InjectView(R.id.tv_des)
+	TextView tvDes;
+	@InjectView(R.id.tv_download)
+	TextView tvDownload;
+	@InjectView(R.id.iv_icon)
+	ImageView ivIcon;
+	@InjectView(R.id.rb_star)
+	RatingBar rbStar;
+	@InjectView(R.id.fl_progress)
+	FrameLayout flProgress;
+	
 	private DownloadManager mDM;
-
-	private TextView tvName, tvSize, tvDes;
-	private ImageView ivIcon;
-	private RatingBar rbStar;
-
 	private BitmapUtils mBitmapUtils;
-
 	private ProgressArc pbProgress;
-
 	private int mCurrentState;
 	private float mProgress;
-
-	private TextView tvDownload;
 
 	@Override
 	public View initView() {
 		// 1. 加载布局
 		View view = UIUtils.inflate(R.layout.list_item_home);
-		// 2. 初始化控件
-		tvName = (TextView) view.findViewById(R.id.tv_name);
-		tvSize = (TextView) view.findViewById(R.id.tv_size);
-		tvDes = (TextView) view.findViewById(R.id.tv_des);
-		ivIcon = (ImageView) view.findViewById(R.id.iv_icon);
-		rbStar = (RatingBar) view.findViewById(R.id.rb_star);
-		tvDownload = (TextView) view.findViewById(R.id.tv_download);
+		ButterKnife.inject(this, view);
 
-		// mBitmapUtils = new BitmapUtils(UIUtils.getContext());
-		mBitmapUtils = BitmapHelper.getBitmapUtils();//懒汉模式
+		// mBitmapUtils = new BitmapUtils(UIUtils.getContext());//每个paga占4M内存 容易内存溢出   03.首页item数据更新&ListView控件封装&细节处理（用单例模式解决懒汉）
+		mBitmapUtils = BitmapHelper.getBitmapUtils();// 懒汉模式 总共占用4M内存
 
 		// 初始化进度条
-		FrameLayout flProgress = (FrameLayout) view.findViewById(R.id.fl_progress);
 		flProgress.setOnClickListener(this);
 
 		pbProgress = new ProgressArc(UIUtils.getContext());
@@ -82,7 +83,6 @@ public class HomeHolder extends BaseHolder<AppInfo> implements DownloadObserver,
 		tvSize.setText(Formatter.formatFileSize(UIUtils.getContext(), data.size));
 		tvDes.setText(data.des);
 		rbStar.setRating(data.stars);
-
 		mBitmapUtils.display(ivIcon, HttpHelper.URL + "image?name=" + data.iconUrl);
 
 		// 判断当前应用是否下载过

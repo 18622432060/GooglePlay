@@ -10,6 +10,10 @@ import android.view.View.OnTouchListener;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.FrameLayout;
+/**
+ * 星际穿越（核心类）
+ * @author liupeng
+ */
 @SuppressWarnings({"deprecation","unused"})
 public class StellarMap extends FrameLayout implements AnimationListener, OnTouchListener, OnGestureListener {
 
@@ -282,4 +286,5 @@ public class StellarMap extends FrameLayout implements AnimationListener, OnTouc
 
 		public abstract int getNextGroupOnZoom(int group, boolean isZoomIn);
 	}
+	
 }

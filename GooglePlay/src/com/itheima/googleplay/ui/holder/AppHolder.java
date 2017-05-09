@@ -5,6 +5,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 import com.itheima.googleplay.R;
 import com.itheima.googleplay.domain.AppInfo;
@@ -21,22 +23,23 @@ import com.lidroid.xutils.BitmapUtils;
  */
 public class AppHolder extends BaseHolder<AppInfo> {
 
-	private TextView tvName, tvSize, tvDes;
-	private ImageView ivIcon;
-	private RatingBar rbStar;
+	@InjectView(R.id.tv_name)
+	TextView tvName;
+	@InjectView(R.id.tv_size)
+	TextView tvSize;
+	@InjectView(R.id.tv_des)
+	TextView tvDes;
+	@InjectView(R.id.iv_icon)
+	ImageView ivIcon;
+	@InjectView(R.id.rb_star)
+	RatingBar rbStar;
 
 	private BitmapUtils mBitmapUtils;
 
 	@Override
 	public View initView() {
-		// 1. 加载布局
 		View view = UIUtils.inflate(R.layout.list_item_home);
-		// 2. 初始化控件
-		tvName = (TextView) view.findViewById(R.id.tv_name);
-		tvSize = (TextView) view.findViewById(R.id.tv_size);
-		tvDes = (TextView) view.findViewById(R.id.tv_des);
-		ivIcon = (ImageView) view.findViewById(R.id.iv_icon);
-		rbStar = (RatingBar) view.findViewById(R.id.rb_star);
+		ButterKnife.inject(this, view);
 		mBitmapUtils = BitmapHelper.getBitmapUtils();
 		return view;
 	}

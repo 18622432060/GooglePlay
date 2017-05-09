@@ -9,13 +9,12 @@ import com.itheima.googleplay.http.protocol.AppProtocol;
 import com.itheima.googleplay.ui.adapter.MyBaseAdapter;
 import com.itheima.googleplay.ui.holder.AppHolder;
 import com.itheima.googleplay.ui.holder.BaseHolder;
-import com.itheima.googleplay.ui.view.MyListView;
 import com.itheima.googleplay.ui.view.LoadingPage.ResultState;
+import com.itheima.googleplay.ui.view.MyListView;
 import com.itheima.googleplay.utils.UIUtils;
 
 /**
  * 应用
- * 
  * @author liupeng
  * @date 2015-10-27
  */

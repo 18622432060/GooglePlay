@@ -67,7 +67,6 @@ public abstract class LoadingPage extends FrameLayout {
 					loadData();
 				}
 			});
-
 			addView(mErrorPage);
 		}
 
@@ -83,9 +82,7 @@ public abstract class LoadingPage extends FrameLayout {
 	// 根据当前状态,决定显示哪个布局
 	private void showRightPage() {
 		mLoadingPage.setVisibility((mCurrentState == STATE_LOAD_UNDO || mCurrentState == STATE_LOAD_LOADING) ? View.VISIBLE: View.GONE);
-
 		mErrorPage.setVisibility(mCurrentState == STATE_LOAD_ERROR ? View.VISIBLE: View.GONE);
-
 		mEmptyPage.setVisibility(mCurrentState == STATE_LOAD_EMPTY ? View.VISIBLE: View.GONE);
 
 		// 当成功布局为空,并且当前状态为成功,才初始化成功的布局
@@ -104,15 +101,11 @@ public abstract class LoadingPage extends FrameLayout {
 	// 开始加载数据
 	public void loadData() {
 		if (mCurrentState != STATE_LOAD_LOADING) {// 如果当前没有加载, 就开始加载数据
-
 			mCurrentState = STATE_LOAD_LOADING;
-			
 			ThreadManager.getThreadPool().execute(new Runnable() {
-
 				@Override
 				public void run() {
 					final ResultState resultState = onLoad();
-
 					// 运行在主线程
 					UIUtils.runOnUIThread(new Runnable() {
 						@Override

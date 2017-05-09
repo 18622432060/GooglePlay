@@ -3,6 +3,8 @@ package com.itheima.googleplay.ui.holder;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 import com.itheima.googleplay.R;
 import com.itheima.googleplay.domain.SubjectInfo;
@@ -19,19 +21,18 @@ import com.lidroid.xutils.BitmapUtils;
  */
 public class SubjectHolder extends BaseHolder<SubjectInfo> {
 
-	private ImageView ivPic;
-	private TextView tvTitle;
+	@InjectView(R.id.iv_pic)
+	ImageView ivPic;
+	@InjectView(R.id.tv_title)
+	TextView tvTitle;
 
 	private BitmapUtils mBitmapUtils;
 
 	@Override
 	public View initView() {
 		View view = UIUtils.inflate(R.layout.list_item_subject);
-		ivPic = (ImageView) view.findViewById(R.id.iv_pic);
-		tvTitle = (TextView) view.findViewById(R.id.tv_title);
-
+		ButterKnife.inject(this, view);
 		mBitmapUtils = BitmapHelper.getBitmapUtils();
-
 		return view;
 	}
 

@@ -2,16 +2,16 @@ package com.itheima.googleplay.ui.fragment;
 
 import java.util.ArrayList;
 
+import android.view.View;
+
 import com.itheima.googleplay.domain.SubjectInfo;
 import com.itheima.googleplay.http.protocol.SubjectProtocol;
 import com.itheima.googleplay.ui.adapter.MyBaseAdapter;
 import com.itheima.googleplay.ui.holder.BaseHolder;
 import com.itheima.googleplay.ui.holder.SubjectHolder;
-import com.itheima.googleplay.ui.view.MyListView;
 import com.itheima.googleplay.ui.view.LoadingPage.ResultState;
+import com.itheima.googleplay.ui.view.MyListView;
 import com.itheima.googleplay.utils.UIUtils;
-
-import android.view.View;
 
 /**
  * 专题
@@ -56,4 +56,4 @@ public class SubjectFragment extends BaseFragment {
 		}
 
 	}
-}
+} 	

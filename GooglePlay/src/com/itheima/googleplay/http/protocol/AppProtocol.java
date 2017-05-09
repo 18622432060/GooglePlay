@@ -30,11 +30,9 @@ public class AppProtocol extends BaseProtocol<ArrayList<AppInfo>> {
 	public ArrayList<AppInfo> parseData(String result) {
 		try {
 			JSONArray ja = new JSONArray(result);
-
 			ArrayList<AppInfo> list = new ArrayList<AppInfo>();
 			for (int i = 0; i < ja.length(); i++) {
 				JSONObject jo = ja.getJSONObject(i);
-
 				AppInfo info = new AppInfo();
 				info.des = jo.getString("des");
 				info.downloadUrl = jo.getString("downloadUrl");
@@ -44,16 +42,12 @@ public class AppProtocol extends BaseProtocol<ArrayList<AppInfo>> {
 				info.packageName = jo.getString("packageName");
 				info.size = jo.getLong("size");
 				info.stars = (float) jo.getDouble("stars");
-
 				list.add(info);
 			}
-
 			return list;
-
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-
 		return null;
 	}
 

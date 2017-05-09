@@ -11,8 +11,8 @@ import android.os.Environment;
  * 
  * 注意: 一定要有读写sdcard的权限!!!!
  * 
- *  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+ * <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+ * <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
  * 
  * @author liupeng
  * @date 2015-11-4
@@ -37,7 +37,6 @@ public class DownloadInfo {
 		if (size == 0) {
 			return 0;
 		}
-
 		float progress = currentPos / (float) size;
 		return progress;
 	}
@@ -45,25 +44,21 @@ public class DownloadInfo {
 	// 拷贝对象, 从AppInfo中拷贝出一个DownloadInfo
 	public static DownloadInfo copy(AppInfo info) {
 		DownloadInfo downloadInfo = new DownloadInfo();
-
 		downloadInfo.id = info.id;
 		downloadInfo.name = info.name;
 		downloadInfo.downloadUrl = info.downloadUrl;
 		downloadInfo.packageName = info.packageName;
 		downloadInfo.size = info.size;
-
 		downloadInfo.currentPos = 0;
 		downloadInfo.currentState = DownloadManager.STATE_UNDO;// 默认状态是未下载
 		downloadInfo.path = downloadInfo.getFilePath();
-
 		return downloadInfo;
 	}
 
 	// 获取文件下载路径
 	public String getFilePath() {
 		StringBuffer sb = new StringBuffer();
-		String sdcard = Environment.getExternalStorageDirectory()
-				.getAbsolutePath();
+		String sdcard = Environment.getExternalStorageDirectory().getAbsolutePath();
 		sb.append(sdcard);
 		// sb.append("/");
 		sb.append(File.separator);
@@ -81,12 +76,10 @@ public class DownloadInfo {
 
 	private boolean createDir(String dir) {
 		File dirFile = new File(dir);
-
 		// 文件夹不存在或者不是一个文件夹
 		if (!dirFile.exists() || !dirFile.isDirectory()) {
 			return dirFile.mkdirs();
 		}
-
 		return true;// 文件夹存在
 	}
 

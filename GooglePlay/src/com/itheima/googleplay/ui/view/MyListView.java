@@ -6,6 +6,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
 import android.widget.ListView;
 
+/**
+ * @author liupeng
+ */
 public class MyListView extends ListView {
 
 	public MyListView(Context context, AttributeSet attrs, int defStyle) {

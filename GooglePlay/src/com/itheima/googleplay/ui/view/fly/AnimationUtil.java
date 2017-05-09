@@ -7,6 +7,9 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.ScaleAnimation;
 
+/**
+ * @author liupeng
+ */
 public class AnimationUtil {
 
 	private static final long MEDIUM = 500;
@@ -22,8 +25,7 @@ public class AnimationUtil {
 		anim.setInterpolator(new LinearInterpolator());
 		ret.addAnimation(anim);
 		// 创建一个放大的动画
-		anim = new ScaleAnimation(0, 1, 0, 1, Animation.RELATIVE_TO_SELF, 0.5f,
-				Animation.RELATIVE_TO_SELF, 0.5f);
+		anim = new ScaleAnimation(0, 1, 0, 1, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 		anim.setDuration(MEDIUM);
 		anim.setInterpolator(new DecelerateInterpolator());
 		ret.addAnimation(anim);
@@ -41,8 +43,7 @@ public class AnimationUtil {
 		anim.setInterpolator(new DecelerateInterpolator());
 		ret.addAnimation(anim);
 		// 创建一个放大的动画
-		anim = new ScaleAnimation(1, 3, 1, 3, Animation.RELATIVE_TO_SELF, 0.5f,
-				Animation.RELATIVE_TO_SELF, 0.5f);
+		anim = new ScaleAnimation(1, 3, 1, 3, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 		anim.setDuration(MEDIUM);
 		anim.setInterpolator(new DecelerateInterpolator());
 		ret.addAnimation(anim);
@@ -60,8 +61,7 @@ public class AnimationUtil {
 		anim.setInterpolator(new LinearInterpolator());
 		ret.addAnimation(anim);
 		// 创建一个缩小的动画
-		anim = new ScaleAnimation(3, 1, 3, 1, Animation.RELATIVE_TO_SELF, 0.5f,
-				Animation.RELATIVE_TO_SELF, 0.5f);
+		anim = new ScaleAnimation(3, 1, 3, 1, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 		anim.setDuration(MEDIUM);
 		anim.setInterpolator(new DecelerateInterpolator());
 		ret.addAnimation(anim);
@@ -79,8 +79,7 @@ public class AnimationUtil {
 		anim.setInterpolator(new DecelerateInterpolator());
 		ret.addAnimation(anim);
 		// 创建一个缩小的动画
-		anim = new ScaleAnimation(1, 0, 1, 0, Animation.RELATIVE_TO_SELF, 0.5f,
-				Animation.RELATIVE_TO_SELF, 0.5f);
+		anim = new ScaleAnimation(1, 0, 1, 0, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 		anim.setDuration(MEDIUM);
 		anim.setInterpolator(new DecelerateInterpolator());
 		ret.addAnimation(anim);
