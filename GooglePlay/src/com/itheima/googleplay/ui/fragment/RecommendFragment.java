@@ -22,7 +22,7 @@ import com.itheima.googleplay.utils.UIUtils;
  * 推荐
  * 
  * @author liupeng
- * @date 2015-10-27
+ * @date 2016-10-27
  */
 public class RecommendFragment extends BaseFragment {
 
@@ -39,7 +39,7 @@ public class RecommendFragment extends BaseFragment {
 		stellar.setInnerPadding(padding, padding, padding, padding);
 		// 设置默认页面, 第一组数据
 		stellar.setGroup(0, true);
-		ShakeListener shake = new ShakeListener(UIUtils.getContext());
+		ShakeListener shake = new ShakeListener(UIUtils.getContext());//摇晃监听
 		shake.setOnShakeListener(new OnShakeListener() {
 			@Override
 			public void onShake() {

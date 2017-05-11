@@ -12,7 +12,7 @@ import com.itheima.googleplay.domain.AppInfo;
  * 应用网络请求
  * 
  * @author liupeng
- * @date 2015-10-30
+ * @date 2016-10-30
  */
 public class AppProtocol extends BaseProtocol<ArrayList<AppInfo>> {
 

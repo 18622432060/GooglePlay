@@ -22,7 +22,7 @@ import com.itheima.googleplay.utils.UIUtils;
  * 首页
  * 
  * @author liupeng
- * @date 2015-10-27
+ * @date 2016-10-27
  */
 public class HomeFragment extends BaseFragment {
 
@@ -31,7 +31,7 @@ public class HomeFragment extends BaseFragment {
 	// 轮播条数据
 	private ArrayList<String> mPictureList;
 
-	// 如果加载数据成功, 就回调此方法, 在主线程运行
+	// 如果加载数据成功, 就回调此方法, 在主线程运行  (加载页面 先执行onLoad() 再执行onCreateSuccessView())
 	@Override
 	public View onCreateSuccessView() {
 		MyListView view = new MyListView(UIUtils.getContext());

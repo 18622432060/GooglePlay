@@ -25,7 +25,7 @@ import com.lidroid.xutils.BitmapUtils;
  * 首页holder
  * 
  * @author liupeng
- * @date 2015-10-28
+ * @date 2016-10-28
  */
 public class HomeHolder extends BaseHolder<AppInfo> implements DownloadObserver, OnClickListener {
 

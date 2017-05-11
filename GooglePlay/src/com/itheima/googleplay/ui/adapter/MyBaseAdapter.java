@@ -16,7 +16,7 @@ import com.itheima.googleplay.utils.UIUtils;
  * 对adapter的封装
  * 
  * @author liupeng
- * @date 2015-10-28
+ * @date 2016-10-28
  */
 @SuppressWarnings({"rawtypes","unchecked"})
 public abstract class MyBaseAdapter<T> extends BaseAdapter {

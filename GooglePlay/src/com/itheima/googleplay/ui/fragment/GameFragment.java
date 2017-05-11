@@ -9,7 +9,7 @@ import com.itheima.googleplay.utils.UIUtils;
 /**
  * 游戏
  * @author liupeng
- * @date 2015-10-27
+ * @date 2016-10-27
  */
 public class GameFragment extends BaseFragment {
 

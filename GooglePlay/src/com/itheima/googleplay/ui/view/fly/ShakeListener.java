@@ -8,6 +8,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 /**
+ * 摇晃监听
  * @author liupeng
  */
 @SuppressWarnings("deprecation")

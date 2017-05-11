@@ -6,9 +6,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp" 
-        android:layout_weight="1"
-        >
+        android:layout_height="0dp"
+        android:layout_weight="1" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,8 +20,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:background="@drawable/list_item_bg_selector" >
-            </FrameLayout>
+                android:background="@drawable/list_item_bg_selector" />
 
             <FrameLayout
                 android:id="@+id/fl_detail_safe"
@@ -30,8 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:background="@drawable/list_item_bg_selector" >
-            </FrameLayout>
+                android:background="@drawable/list_item_bg_selector" />
 
             <HorizontalScrollView
                 android:id="@+id/hsv_detail_pics"
@@ -39,8 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:background="#cccccc" >
-            </HorizontalScrollView>
+                android:background="#cccccc" />
 
             <FrameLayout
                 android:id="@+id/fl_detail_des"
@@ -49,8 +45,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:background="@drawable/list_item_bg_selector"
-                android:padding="3dp" >
-            </FrameLayout>
+                android:padding="3dp" />
         </LinearLayout>
     </ScrollView>
 
@@ -58,7 +53,6 @@
         android:id="@+id/fl_detail_download"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/detail_bottom_bg" >
-    </FrameLayout>
+        android:background="@drawable/detail_bottom_bg" />
 
 </LinearLayout>

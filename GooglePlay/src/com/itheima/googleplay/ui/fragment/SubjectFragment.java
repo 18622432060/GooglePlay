@@ -17,7 +17,7 @@ import com.itheima.googleplay.utils.UIUtils;
  * 专题
  * 
  * @author liupeng
- * @date 2015-10-27
+ * @date 2016-10-27
  */
 public class SubjectFragment extends BaseFragment {
 

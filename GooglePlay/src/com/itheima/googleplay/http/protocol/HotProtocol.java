@@ -7,7 +7,7 @@ import org.json.JSONException;
 /**
  * 排行网络访问
  * @author liupeng
- * @date 2015-10-30
+ * @date 2016-10-30
  */
 public class HotProtocol extends BaseProtocol<ArrayList<String>> {
 
@@ -25,16 +25,12 @@ public class HotProtocol extends BaseProtocol<ArrayList<String>> {
 	public ArrayList<String> parseData(String result) {
 		try {
 			JSONArray ja = new JSONArray(result);
-
 			ArrayList<String> list = new ArrayList<String>();
-
 			for (int i = 0; i < ja.length(); i++) {
 				String keyword = ja.getString(i);
 				list.add(keyword);
 			}
-
 			return list;
-
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

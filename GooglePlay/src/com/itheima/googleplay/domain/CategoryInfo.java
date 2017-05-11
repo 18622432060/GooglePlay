@@ -2,9 +2,8 @@ package com.itheima.googleplay.domain;
 
 /**
  * 分类信息
- * 
  * @author liupeng
- * @date 2015-11-1
+ * @date 2016-11-1
  */
 public class CategoryInfo {
 	public String name1;

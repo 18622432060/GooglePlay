@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * 首页应用信息封装
  * 
  * @author liupeng
- * @date 2015-10-28
+ * @date 2016-10-28
  */
 public class AppInfo {
 

@@ -32,7 +32,7 @@ import com.itheima.googleplay.utils.UIUtils;
  * 3. 自动导包
  * 4. 给UIUtils增加方法:getColorStateList
  * @author liupeng
- * @date 2015-10-27
+ * @date 2016-10-27
  */
 @SuppressWarnings({"deprecation","unused"})
 public class PagerTab extends ViewGroup {

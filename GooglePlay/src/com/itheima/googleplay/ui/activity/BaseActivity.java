@@ -11,7 +11,7 @@ import android.support.v7.app.ActionBarActivity;
  * 3. 继承ActionBarActivity
  * 
  * @author liupeng
- * @date 2015-10-27
+ * @date 2016-10-27
  */
 public class BaseActivity extends ActionBarActivity {
 

@@ -15,12 +15,9 @@ import com.itheima.googleplay.utils.UIUtils;
 public class MoreHolder extends BaseHolder<Integer> {
 
 	// 加载更多的几种状态
-	// 1. 可以加载更多
-	// 2. 加载更多失败
-	// 3. 没有更多数据
-	public static final int STATE_MORE_MORE = 1;
-	public static final int STATE_MORE_ERROR = 2;
-	public static final int STATE_MORE_NONE = 3;
+	public static final int STATE_MORE_MORE = 1;// 1. 可以加载更多
+	public static final int STATE_MORE_ERROR = 2;// 2. 加载更多失败
+	public static final int STATE_MORE_NONE = 3; // 3. 没有更多数据
 
 	@InjectView(R.id.ll_load_more)
 	LinearLayout llLoadMore;

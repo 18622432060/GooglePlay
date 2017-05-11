@@ -23,7 +23,7 @@ import com.itheima.googleplay.utils.UIUtils;
  * 排行
  * 
  * @author liupeng
- * @date 2015-10-27
+ * @date 2016-10-27
  */
 @SuppressWarnings("deprecation")
 public class HotFragment extends BaseFragment {
@@ -63,28 +63,20 @@ public class HotFragment extends BaseFragment {
 
 			// GradientDrawable bgNormal = DrawableUtils.getGradientDrawable(
 			// Color.rgb(r, g, b), UIUtils.dip2px(6));
-			// GradientDrawable bgPress = DrawableUtils.getGradientDrawable(
-			// color, UIUtils.dip2px(6));
-			// StateListDrawable selector = DrawableUtils.getSelector(bgNormal,
-			// bgPress);
+			// GradientDrawable bgPress = DrawableUtils.getGradientDrawable(color, UIUtils.dip2px(6));
+			// StateListDrawable selector = DrawableUtils.getSelector(bgNormal, bgPress);
 
-			StateListDrawable selector = DrawableUtils.getSelector(
-					Color.rgb(r, g, b), color, UIUtils.dip2px(6));
+			StateListDrawable selector = DrawableUtils.getSelector(Color.rgb(r, g, b), color, UIUtils.dip2px(6));
 			view.setBackgroundDrawable(selector);
-
 			flow.addView(view);
-
 			// 只有设置点击事件, 状态选择器才起作用
 			view.setOnClickListener(new OnClickListener() {
-
 				@Override
 				public void onClick(View v) {
-					Toast.makeText(UIUtils.getContext(), keyword,
-							Toast.LENGTH_SHORT).show();
+					Toast.makeText(UIUtils.getContext(), keyword, Toast.LENGTH_SHORT).show();
 				}
 			});
 		}
-
 		scrollView.addView(flow);
 		return scrollView;
 	}

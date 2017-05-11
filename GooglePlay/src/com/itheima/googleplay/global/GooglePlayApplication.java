@@ -15,7 +15,7 @@ import com.itheima.googleplay.utils.LogUtils;
  * 自定义application, 进行全局初始化
  * 
  * @author liupeng
- * @date 2015-10-27
+ * @date 2016-10-27
  */
 @SuppressWarnings("unused")
 public class GooglePlayApplication extends Application {

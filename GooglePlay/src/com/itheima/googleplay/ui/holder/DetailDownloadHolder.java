@@ -19,7 +19,7 @@ import com.itheima.googleplay.utils.UIUtils;
  * 详情页-下载模块
  * 
  * @author liupeng
- * @date 2015-11-4
+ * @date 2016-11-4
  */
 public class DetailDownloadHolder extends BaseHolder<AppInfo> implements
 		DownloadObserver, OnClickListener {

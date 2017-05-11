@@ -24,7 +24,7 @@ import com.itheima.googleplay.utils.UIUtils;
  * android:theme="@style/Theme.AppCompat.Light"
  * 
  * @author liupeng
- * @date 2015-10-27
+ * @date 2016-10-27
  */
 public class MainActivity extends BaseActivity {
 	

@@ -6,7 +6,7 @@ import java.util.HashMap;
  * 生产fragment工厂
  * 
  * @author liupeng
- * @date 2015-10-27
+ * @date 2016-10-27
  */
 public class FragmentFactory {
 

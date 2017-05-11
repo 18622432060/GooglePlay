@@ -16,7 +16,7 @@ import com.itheima.googleplay.utils.UIUtils;
  * - 未加载 - 加载中 - 加载失败 - 数据为空 - 加载成功
  * 
  * @author liupeng
- * @date 2015-10-27
+ * @date 2016-10-27
  */
 public abstract class LoadingPage extends FrameLayout {
 
@@ -122,7 +122,7 @@ public abstract class LoadingPage extends FrameLayout {
 		}
 	}
 
-	// 加载成功后显示的布局, 必须由调用者来实现
+	// 加载成功后显示的布局, 必须由调用者来实现         如果加载数据成功, 就回调此方法, 在主线程运行  (加载页面 先执行onLoad() 再执行onCreateSuccessView())
 	public abstract View onCreateSuccessView();
 
 	// 加载网络数据, 返回值表示请求网络结束后的状态

@@ -7,7 +7,7 @@ import org.json.JSONException;
 /**
  * 推荐网络访问
  * @author liupeng
- * @date 2015-10-30
+ * @date 2016-10-30
  */
 public class RecommendProtocol extends BaseProtocol<ArrayList<String>> {
 

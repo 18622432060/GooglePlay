@@ -36,7 +36,7 @@ public abstract class BaseFragment extends Fragment {
 		return mLoadingPage;
 	}
 
-	// 加载成功的布局, 必须由子类来实现
+	// 加载成功的布局, 必须由子类来实现    如果加载数据成功, 就回调此方法, 在主线程运行  (加载页面 先执行onLoad() 再执行onCreateSuccessView())
 	public abstract View onCreateSuccessView();
 
 	// 加载网络数据, 必须由子类来实现

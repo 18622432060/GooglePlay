@@ -12,7 +12,7 @@ import com.itheima.googleplay.utils.LogUtils;
  * 线程管理器
  * 
  * @author liupeng
- * @date 2015-11-4
+ * @date 2016-11-4
  */
 public class ThreadManager {
 
@@ -25,8 +25,8 @@ public class ThreadManager {
 					int cpuCount = Runtime.getRuntime().availableProcessors();// 获取cpu数量
 					LogUtils.v("cup个数:" + cpuCount);
 
-					int threadCount = cpuCount * 2 + 1;//线程个数
-//					int threadCount = 10;
+					int threadCount = cpuCount * 2 + 1;// 线程个数
+					// int threadCount = 10;
 					mThreadPool = new ThreadPool(threadCount, threadCount, 1L);
 				}
 			}
@@ -43,8 +43,7 @@ public class ThreadManager {
 
 		private ThreadPoolExecutor executor;
 
-		private ThreadPool(int corePoolSize, int maximumPoolSize,
-				long keepAliveTime) {
+		private ThreadPool(int corePoolSize, int maximumPoolSize, long keepAliveTime) {
 			this.corePoolSize = corePoolSize;
 			this.maximumPoolSize = maximumPoolSize;
 			this.keepAliveTime = keepAliveTime;
@@ -59,13 +58,9 @@ public class ThreadManager {
 		// 而线程存活时间指的是, 允许售票员休息的最长时间, 以此限制售票员偷懒的行为.
 		public void execute(Runnable r) {
 			if (executor == null) {
-				executor = new ThreadPoolExecutor(corePoolSize,
-						maximumPoolSize, keepAliveTime, TimeUnit.SECONDS,
-						new LinkedBlockingQueue<Runnable>(),
-						Executors.defaultThreadFactory(), new AbortPolicy());
+				executor = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>(), Executors.defaultThreadFactory(), new AbortPolicy());
 				// 参1:核心线程数;参2:最大线程数;参3:线程休眠时间;参4:时间单位;参5:线程队列;参6:生产线程的工厂;参7:线程异常处理策略
 			}
-
 			// 线程池执行一个Runnable对象, 具体运行时机线程池说了算
 			executor.execute(r);
 		}
