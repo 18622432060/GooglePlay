@@ -9,27 +9,27 @@ public class DetailAppInfoHolder$$ViewInjector {
     View view;
     view = finder.findRequiredView(source, 2131034180, "field 'tvDate'");
     target.tvDate = (android.widget.TextView) view;
-    view = finder.findRequiredView(source, 2131034179, "field 'tvVersion'");
-    target.tvVersion = (android.widget.TextView) view;
-    view = finder.findRequiredView(source, 2131034175, "field 'ivIcon'");
-    target.ivIcon = (android.widget.ImageView) view;
     view = finder.findRequiredView(source, 2131034181, "field 'tvSize'");
     target.tvSize = (android.widget.TextView) view;
     view = finder.findRequiredView(source, 2131034178, "field 'tvDownloadNum'");
     target.tvDownloadNum = (android.widget.TextView) view;
-    view = finder.findRequiredView(source, 2131034177, "field 'rbStar'");
-    target.rbStar = (android.widget.RatingBar) view;
     view = finder.findRequiredView(source, 2131034176, "field 'tvName'");
     target.tvName = (android.widget.TextView) view;
+    view = finder.findRequiredView(source, 2131034175, "field 'ivIcon'");
+    target.ivIcon = (android.widget.ImageView) view;
+    view = finder.findRequiredView(source, 2131034179, "field 'tvVersion'");
+    target.tvVersion = (android.widget.TextView) view;
+    view = finder.findRequiredView(source, 2131034177, "field 'rbStar'");
+    target.rbStar = (android.widget.RatingBar) view;
   }
 
   public static void reset(com.itheima.googleplay.ui.holder.DetailAppInfoHolder target) {
     target.tvDate = null;
-    target.tvVersion = null;
-    target.ivIcon = null;
     target.tvSize = null;
     target.tvDownloadNum = null;
-    target.rbStar = null;
     target.tvName = null;
+    target.ivIcon = null;
+    target.tvVersion = null;
+    target.rbStar = null;
   }
 }
