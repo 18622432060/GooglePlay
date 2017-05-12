@@ -9,6 +9,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
+/**
+ * @author liupeng
+ */
 public class MyFlowLayout extends ViewGroup {
 
 	private int mUsedWidth;// 当前行已使用的宽度
@@ -37,12 +40,10 @@ public class MyFlowLayout extends ViewGroup {
 	protected void onLayout(boolean changed, int l, int t, int r, int b) {
 		int left = l + getPaddingLeft();
 		int top = t + getPaddingTop();
-
 		// 遍历所有行对象, 设置每行位置
 		for (int i = 0; i < mLineList.size(); i++) {
 			Line line = mLineList.get(i);
 			line.layout(left, top);
-
 			top += line.mMaxHeight + mVerticalSpacing;// 更新top值
 		}
 	}
@@ -63,8 +64,8 @@ public class MyFlowLayout extends ViewGroup {
 			View childView = getChildAt(i);
 
 			// 如果父控件是确定模式, 子控件包裹内容;否则子控件模式和父控件一致
-			int childWidthMeasureSpec = MeasureSpec.makeMeasureSpec(width,(widthMode == MeasureSpec.EXACTLY) ? MeasureSpec.AT_MOST : widthMode);
-			int childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(height,(heightMode == MeasureSpec.EXACTLY) ? MeasureSpec.AT_MOST : heightMode);
+			int childWidthMeasureSpec = MeasureSpec.makeMeasureSpec(width,widthMode == MeasureSpec.EXACTLY ? MeasureSpec.AT_MOST : widthMode);
+			int childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(height,heightMode == MeasureSpec.EXACTLY ? MeasureSpec.AT_MOST : heightMode);
 
 			// 开始测量
 			childView.measure(childWidthMeasureSpec, childHeightMeasureSpec);
@@ -121,8 +122,8 @@ public class MyFlowLayout extends ViewGroup {
 		totalHeight += (mLineList.size() - 1) * mVerticalSpacing;// 增加竖直间距
 		totalHeight += getPaddingTop() + getPaddingBottom();// 增加上下边距
 		// 根据最新的宽高来测量整体布局的大小
-		setMeasuredDimension(totalWidth, totalHeight);
-		// super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+		setMeasuredDimension(totalWidth, totalHeight);// 这两个结果一样
+		//super.onMeasure(MeasureSpec.makeMeasureSpec(totalWidth,MeasureSpec.EXACTLY),MeasureSpec.makeMeasureSpec(totalHeight,MeasureSpec.EXACTLY));//这两个结果一样
 	}
 
 	// 换行
@@ -138,7 +139,8 @@ public class MyFlowLayout extends ViewGroup {
 	}
 		
 	// 每一行的对象封装
-	class Line {
+	private class Line {
+		
 		private int mTotalWidth;// 当前所有控件总宽度
 		public int mMaxHeight;// 当前控件的高度(以最高的控件为准)
 		private ArrayList<View> mChildViewList = new ArrayList<View>();// 当前行所有子控件集合
@@ -196,7 +198,6 @@ public class MyFlowLayout extends ViewGroup {
 				View childView = mChildViewList.get(0);
 				childView.layout(left, top, left + childView.getMeasuredWidth(),top + childView.getMeasuredHeight());
 			}
-
 		}
 
 	}

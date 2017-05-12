@@ -2,13 +2,13 @@ package com.itheima.googleplay.ui.holder;
 
 import android.text.format.Formatter;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 
 import com.itheima.googleplay.R;
 import com.itheima.googleplay.domain.AppInfo;
@@ -27,7 +27,7 @@ import com.lidroid.xutils.BitmapUtils;
  * @author liupeng
  * @date 2016-10-28
  */
-public class HomeHolder extends BaseHolder<AppInfo> implements DownloadObserver, OnClickListener {
+public class HomeHolder extends BaseHolder<AppInfo> implements DownloadObserver {
 
 	@InjectView(R.id.tv_name)
 	TextView tvName;
@@ -58,9 +58,6 @@ public class HomeHolder extends BaseHolder<AppInfo> implements DownloadObserver,
 
 		// mBitmapUtils = new BitmapUtils(UIUtils.getContext());//每个paga占4M内存 容易内存溢出   03.首页item数据更新&ListView控件封装&细节处理（用单例模式解决懒汉）
 		mBitmapUtils = BitmapHelper.getBitmapUtils();// 懒汉模式 总共占用4M内存
-
-		// 初始化进度条
-		flProgress.setOnClickListener(this);
 
 		pbProgress = new ProgressArc(UIUtils.getContext());
 		// 设置圆形进度条直径
@@ -177,7 +174,7 @@ public class HomeHolder extends BaseHolder<AppInfo> implements DownloadObserver,
 		refreshUIOnMainThread(info);
 	}
 
-	@Override
+	@OnClick(R.id.fl_progress)
 	public void onClick(View v) {
 		switch (v.getId()) {
 			case R.id.fl_progress:

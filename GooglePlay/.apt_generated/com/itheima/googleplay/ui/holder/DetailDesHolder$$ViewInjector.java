@@ -9,18 +9,18 @@ public class DetailDesHolder$$ViewInjector {
     View view;
     view = finder.findRequiredView(source, 2131034182, "field 'tvDes'");
     target.tvDes = (android.widget.TextView) view;
-    view = finder.findRequiredView(source, 2131034185, "field 'ivArrow'");
-    target.ivArrow = (android.widget.ImageView) view;
-    view = finder.findRequiredView(source, 2131034184, "field 'tvAuthor'");
-    target.tvAuthor = (android.widget.TextView) view;
     view = finder.findRequiredView(source, 2131034183, "field 'rlToggle'");
     target.rlToggle = (android.widget.RelativeLayout) view;
+    view = finder.findRequiredView(source, 2131034184, "field 'tvAuthor'");
+    target.tvAuthor = (android.widget.TextView) view;
+    view = finder.findRequiredView(source, 2131034185, "field 'ivArrow'");
+    target.ivArrow = (android.widget.ImageView) view;
   }
 
   public static void reset(com.itheima.googleplay.ui.holder.DetailDesHolder target) {
     target.tvDes = null;
-    target.ivArrow = null;
-    target.tvAuthor = null;
     target.rlToggle = null;
+    target.tvAuthor = null;
+    target.ivArrow = null;
   }
 }

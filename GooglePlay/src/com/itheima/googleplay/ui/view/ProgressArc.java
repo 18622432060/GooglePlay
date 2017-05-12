@@ -20,9 +20,6 @@ import com.itheima.googleplay.utils.UIUtils;
  * @author liupeng
  */
 public class ProgressArc extends View {
-	// ==========================================================================
-	// Constants
-	// ==========================================================================
 	private final static int START_PROGRESS = -90;
 	private static final int SET_PROGRESS_END_TIME = 1000;
 	private static final float RATIO = 360f;
@@ -128,13 +125,11 @@ public class ProgressArc extends View {
 		if (widthMode == MeasureSpec.EXACTLY) {// 如果是精确的
 			width = widthSize;
 		} else {// 采用图片的大小
-			width = mDrawableForegroud == null ? 0 : mDrawableForegroud
-					.getIntrinsicWidth();
+			width = mDrawableForegroud == null ? 0 : mDrawableForegroud.getIntrinsicWidth();
 			if (widthMode == MeasureSpec.AT_MOST) {
 				width = Math.min(width, widthSize);
 			}
 		}
-
 		if (heightMode == MeasureSpec.EXACTLY) {// 如果是精确的
 			height = heightSize;
 		} else {// 采用图片的大小
@@ -149,15 +144,13 @@ public class ProgressArc extends View {
 		mArcRect.top = (height - mArcDiameter) * 0.5f;
 		mArcRect.right = (width + mArcDiameter) * 0.5f;
 		mArcRect.bottom = (height + mArcDiameter) * 0.5f;
-
 		setMeasuredDimension(width, height);
 	}
 
 	@Override
 	protected void onDraw(Canvas canvas) {
 		if (mDrawableForegroud != null) {// 先把图片画出来
-			mDrawableForegroud.setBounds(0, 0, getMeasuredWidth(),
-					getMeasuredHeight());
+			mDrawableForegroud.setBounds(0, 0, getMeasuredWidth(),getMeasuredHeight());
 			mDrawableForegroud.draw(canvas);
 		}
 		// 再画进度
@@ -165,8 +158,7 @@ public class ProgressArc extends View {
 	}
 
 	protected void drawArc(Canvas canvas) {
-		if (mStyle == PROGRESS_STYLE_DOWNLOADING
-				|| mStyle == PROGRESS_STYLE_WAITING) {
+		if (mStyle == PROGRESS_STYLE_DOWNLOADING || mStyle == PROGRESS_STYLE_WAITING) {
 			float factor;
 			long currentTime = System.currentTimeMillis();
 			if (mProgress == 100) {
@@ -181,11 +173,9 @@ public class ProgressArc extends View {
 				}
 			}
 			mPaint.setColor(mProgressColor);
-			mCurrentProgress = mStartProgress + factor
-					* (mProgress - mStartProgress);
+			mCurrentProgress = mStartProgress + factor * (mProgress - mStartProgress);
 			mSweep = mCurrentProgress * RATIO;
-			canvas.drawArc(mArcRect, START_PROGRESS, mSweep, mUserCenter,
-					mPaint);
+			canvas.drawArc(mArcRect, START_PROGRESS, mSweep, mUserCenter, mPaint);
 			if (factor != 1 && mStyle == PROGRESS_STYLE_DOWNLOADING) {
 				invalidate();
 			}
@@ -202,7 +192,6 @@ public class ProgressArc extends View {
 	}
 
 	public static interface OnProgressChangeListener {
-
 		public void onProgressChange(float smoothProgress);
 	}
 }

@@ -21,7 +21,6 @@ import com.itheima.googleplay.utils.UIUtils;
 
 /**
  * 排行
- * 
  * @author liupeng
  * @date 2016-10-27
  */
@@ -58,13 +57,8 @@ public class HotFragment extends BaseFragment {
 			int r = 30 + random.nextInt(200);
 			int g = 30 + random.nextInt(200);
 			int b = 30 + random.nextInt(200);
-
+			
 			int color = 0xffcecece;// 按下后偏白的背景色
-
-			// GradientDrawable bgNormal = DrawableUtils.getGradientDrawable(
-			// Color.rgb(r, g, b), UIUtils.dip2px(6));
-			// GradientDrawable bgPress = DrawableUtils.getGradientDrawable(color, UIUtils.dip2px(6));
-			// StateListDrawable selector = DrawableUtils.getSelector(bgNormal, bgPress);
 
 			StateListDrawable selector = DrawableUtils.getSelector(Color.rgb(r, g, b), color, UIUtils.dip2px(6));
 			view.setBackgroundDrawable(selector);

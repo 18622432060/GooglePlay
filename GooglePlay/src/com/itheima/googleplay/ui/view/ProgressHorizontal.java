@@ -13,12 +13,14 @@ import android.graphics.drawable.DrawableContainer;
 import android.graphics.drawable.NinePatchDrawable;
 import android.os.Process;
 import android.view.View;
-import android.widget.RemoteViews.RemoteView;
 
 import com.itheima.googleplay.utils.StringUtils;
 import com.itheima.googleplay.utils.UIUtils;
 
-@RemoteView
+/**
+ * 水平进度条
+ * @author liupeng
+ */
 public class ProgressHorizontal extends View {
 	private static final int MAX_SMOOTH_ANIM_DURATION = 2000;
 	private long mThreadId;

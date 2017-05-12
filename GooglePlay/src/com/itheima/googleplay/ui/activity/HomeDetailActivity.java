@@ -54,7 +54,6 @@ public class HomeDetailActivity extends BaseActivity {
 	// 初始化actionbar
 	private void initActionbar() {
 		ActionBar actionbar = getSupportActionBar();
-		// actionbar.setHomeButtonEnabled(true);// home处可以点击
 		actionbar.setDisplayHomeAsUpEnabled(true);// 显示左上角返回键,当和侧边栏结合时展示三个杠图片
 	}
 

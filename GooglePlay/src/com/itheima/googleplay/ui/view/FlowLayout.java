@@ -9,7 +9,11 @@ import android.view.ViewGroup;
 
 import com.itheima.googleplay.utils.UIUtils;
 
+/**
+ * @author liupeng
+ */
 public class FlowLayout extends ViewGroup {
+	
 	public static final int DEFAULT_SPACING = 20;
 	/** 横向间隔 */
 	private int mHorizontalSpacing = DEFAULT_SPACING;
@@ -61,14 +65,10 @@ public class FlowLayout extends ViewGroup {
 
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-		int sizeWidth = MeasureSpec.getSize(widthMeasureSpec)
-				- getPaddingRight() - getPaddingLeft();
-		int sizeHeight = MeasureSpec.getSize(heightMeasureSpec)
-				- getPaddingTop() - getPaddingBottom();
-
+		int sizeWidth = MeasureSpec.getSize(widthMeasureSpec) - getPaddingRight() - getPaddingLeft();
+		int sizeHeight = MeasureSpec.getSize(heightMeasureSpec) - getPaddingTop() - getPaddingBottom();
 		int modeWidth = MeasureSpec.getMode(widthMeasureSpec);
 		int modeHeight = MeasureSpec.getMode(heightMeasureSpec);
-
 		restoreLine();// 还原数据，以便重新记录
 		final int count = getChildCount();
 		for (int i = 0; i < count; i++) {
@@ -76,16 +76,10 @@ public class FlowLayout extends ViewGroup {
 			if (child.getVisibility() == GONE) {
 				continue;
 			}
-			int childWidthMeasureSpec = MeasureSpec.makeMeasureSpec(sizeWidth,
-					modeWidth == MeasureSpec.EXACTLY ? MeasureSpec.AT_MOST
-							: modeWidth);
-			int childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(
-					sizeHeight,
-					modeHeight == MeasureSpec.EXACTLY ? MeasureSpec.AT_MOST
-							: modeHeight);
+			int childWidthMeasureSpec = MeasureSpec.makeMeasureSpec(sizeWidth, modeWidth == MeasureSpec.EXACTLY ? MeasureSpec.AT_MOST : modeWidth);
+			int childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(sizeHeight, modeHeight == MeasureSpec.EXACTLY ? MeasureSpec.AT_MOST : modeHeight);
 			// 测量child
 			child.measure(childWidthMeasureSpec, childHeightMeasureSpec);
-
 			if (mLine == null) {
 				mLine = new Line();
 			}
@@ -116,8 +110,7 @@ public class FlowLayout extends ViewGroup {
 			}
 		}
 
-		if (mLine != null && mLine.getViewCount() > 0
-				&& !mLines.contains(mLine)) {
+		if (mLine != null && mLine.getViewCount() > 0 && !mLines.contains(mLine)) {
 			// 由于前面采用判断长度是否超过最大宽度来决定是否换行，则最后一行可能因为还没达到最大宽度，所以需要验证后加入集合中
 			mLines.add(mLine);
 		}
@@ -132,8 +125,7 @@ public class FlowLayout extends ViewGroup {
 		totalHeight += getPaddingTop() + getPaddingBottom();// 加上padding
 		// 设置布局的宽高，宽度直接采用父view传递过来的最大宽度，而不用考虑子view是否填满宽度，因为该布局的特性就是填满一行后，再换行
 		// 高度根据设置的模式来决定采用所有子View的高度之和还是采用父view传递过来的高度
-		setMeasuredDimension(totalWidth,
-				resolveSize(totalHeight, heightMeasureSpec));
+		setMeasuredDimension(totalWidth, resolveSize(totalHeight, heightMeasureSpec));
 	}
 
 	@Override
@@ -197,11 +189,9 @@ public class FlowLayout extends ViewGroup {
 			int top = t;
 			int count = getViewCount();
 			// 总宽度
-			int layoutWidth = getMeasuredWidth() - getPaddingLeft()
-					- getPaddingRight();
+			int layoutWidth = getMeasuredWidth() - getPaddingLeft() - getPaddingRight();
 			// 剩余的宽度，是除了View和间隙的剩余空间
-			int surplusWidth = layoutWidth - mWidth - mHorizontalSpacing
-					* (count - 1);
+			int surplusWidth = layoutWidth - mWidth - mHorizontalSpacing * (count - 1);
 			if (surplusWidth >= 0) {// 剩余空间
 				// 采用float类型数据计算后四舍五入能减少int类型计算带来的误差
 				int splitSpacing = (int) (surplusWidth / count + 0.5);
@@ -218,22 +208,18 @@ public class FlowLayout extends ViewGroup {
 					childWidth = childWidth + splitSpacing;
 					view.getLayoutParams().width = childWidth;
 					if (splitSpacing > 0) {// View的长度改变了，需要重新measure
-						int widthMeasureSpec = MeasureSpec.makeMeasureSpec(
-								childWidth, MeasureSpec.EXACTLY);
-						int heightMeasureSpec = MeasureSpec.makeMeasureSpec(
-								childHeight, MeasureSpec.EXACTLY);
+						int widthMeasureSpec = MeasureSpec.makeMeasureSpec(childWidth, MeasureSpec.EXACTLY);
+						int heightMeasureSpec = MeasureSpec.makeMeasureSpec(childHeight, MeasureSpec.EXACTLY);
 						view.measure(widthMeasureSpec, heightMeasureSpec);
 					}
 					// 布局View
-					view.layout(left, top + topOffset, left + childWidth, top
-							+ topOffset + childHeight);
+					view.layout(left, top + topOffset, left + childWidth, top + topOffset + childHeight);
 					left += childWidth + mHorizontalSpacing; // 为下一个View的left赋值
 				}
 			} else {
 				if (count == 1) {
 					View view = views.get(0);
-					view.layout(left, top, left + view.getMeasuredWidth(), top
-							+ view.getMeasuredHeight());
+					view.layout(left, top, left + view.getMeasuredWidth(), top + view.getMeasuredHeight());
 				} else {
 					// 走到这里来，应该是代码出问题了，目前按照逻辑来看，是不可能走到这一步
 				}
